@@ -10,16 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var bouton: UIButton!
+    @IBOutlet weak var monBackground: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        ajouterMasque()
     }
 
 
+    @IBAction func boutonAction(_ sender: Any) {
+        
+    }
+    
+    func ajouterMasque(){
+        let masque = CALayer()
+        masque.contents = #imageLiteral(resourceName: "codabee").cgImage
+        masque.bounds = CGRect(x: 0, y: 0, width: 300, height: 200)
+        masque.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
+        monBackground.layer.mask = masque
+        view.backgroundColor = .black
+        
+    }
+    
 }
 
